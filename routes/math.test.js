@@ -15,22 +15,22 @@ describe("/math", () => {
     it("should sum 0 numbers", async () => {
       const res = await request(server).post("/math/sum").send([]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ sum: 0 });
+      expect(res.body).toEqual({ "sum": 0 });
     });
     it("should sum 1 number", async () => {
       const res = await request(server).post("/math/sum").send([2]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ sum: 2 });
+      expect(res.body).toEqual({ "sum": 2 });
     });
     it("should sum 2 numbers", async () => {
       const res = await request(server).post("/math/sum").send([1, 2]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ sum: 3 });
+      expect(res.body).toEqual({ "sum": 3 });
     });
     it("should sum 3 numbers", async () => {
       const res = await request(server).post("/math/sum").send([1, 2, 5]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ sum: 8 });
+      expect(res.body).toEqual({ "sum": 8 });
     });
   });
   describe("POST /product", () => {
@@ -49,17 +49,17 @@ describe("/math", () => {
     it("should just return 1 number", async () => {
       const res = await request(server).post("/math/product").send([2]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ product: 2 });
+      expect(res.body).toEqual({ "product": 2 });
     });
     it("should multiply 2 numbers", async () => {
       const res = await request(server).post("/math/product").send([1, 2]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ product: 2 });
+      expect(res.body).toEqual({ "product": 2 });
     });
     it("should multiply 3 numbers", async () => {
       const res = await request(server).post("/math/product").send([2, 2, 5]);
       expect(res.statusCode).toEqual(200);
-      expect(res.body).toEqual({ product: 20 });
+      expect(res.body).toEqual({ "product": 20 });
     });
   });
 });

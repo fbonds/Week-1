@@ -5,7 +5,7 @@ const server = require("../server");
 describe("/string", () => {
   describe("GET /lowercase", () => {
     it("should return lowercase version of a string", async () => {
-      const res = await request(server).get("/string/tEST/lowercase");
+      const res = await request(server).get("/string/TEST/lowercase");
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({ lowercase: "test" });
     });
@@ -17,12 +17,12 @@ describe("/string", () => {
   });
   describe("GET /uppercase", () => {
     it("should not change an already uppercase version of a string", async () => {
-      const res = await request(server).get("/string/TEST/lowercase");
+      const res = await request(server).get("/string/TEST/uppercase");
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({ uppercase: "TEST" });
     });
     it("should return an uppercase version of a string", async () => {
-      const res = await request(server).get("/string/otHEr/lowercase");
+      const res = await request(server).get("/string/otHEr/uppercase");
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({ uppercase: "OTHER" });
     });

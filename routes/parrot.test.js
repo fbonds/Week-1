@@ -5,7 +5,7 @@ const server = require("../server");
 describe("/parrot", () => {
   describe("GET /parrot", () => {
     it("should return GET and query parameters", async () => {
-      const res = await request(server).get("/parrot?key1=true&key2=other");
+      const res = await request(server).get("/parrot/parrot?key1=true&key2=other");
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({
         body: {},
@@ -23,7 +23,7 @@ describe("/parrot", () => {
         key: true,
         key2: "other",
       };
-      const res = await request(server).post("/parrot").send(requestBody);
+      const res = await request(server).post("/parrot/parrot").send(requestBody);
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({
         body: requestBody,
@@ -39,7 +39,7 @@ describe("/parrot", () => {
         key2: "other",
       };
       const res = await request(server)
-        .put("/parrot?field=value")
+        .put("/parrot/parrot?field=value")
         .send(requestBody);
       expect(res.statusCode).toEqual(200);
       expect(res.body).toEqual({
